@@ -19,7 +19,8 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+	implementation 'commons-io:commons-io:2.13.0'
+	implementation 'org.apache.commons:commons-fileupload2:2.0.0-M1'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
