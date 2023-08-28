@@ -1,0 +1,35 @@
+name: Build and Upload Docker Image
+
+on:
+  workflow_run:
+    workflows: ["Setup JDK and Gradle"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          java-version: "17"
+          distribution: "corretto"
+
+      - name: Login to DockerHub
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          echo "Logged in to DockerHub"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and Push Docker image
+        working-directory: ./
+        run: |
+          docker image build -t docker.io/kartikayae/apiproject .
+          docker push docker.io/kartikayae/apiproject:latest

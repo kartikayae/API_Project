@@ -1,0 +1,25 @@
+name: Run Container
+
+on:
+  workflow_run:
+    workflows: ["Build and Upload Docker Image"]
+    types:
+      - completed
+
+jobs:
+  run-container:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Login to DockerHub
+        run: |
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          echo "Logged in to DockerHub"
+
+      - name: Run Container Script
+        run: |
+          chmod +x rundocker.sh
+          bash rundocker.sh
