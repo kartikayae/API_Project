@@ -17,6 +17,9 @@ jobs:
           distribution: 'corretto'
           java-version: '17'
           cache: 'gradle'
+
+      - name: Grant permission
+        run: chmod+x gradlew
           
       - name: Setup Gradle
         uses: eskatos/gradle-command-action@v1.3.3
