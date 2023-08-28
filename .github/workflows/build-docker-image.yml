@@ -1,10 +1,7 @@
 name: Build and Upload Docker Image
 
 on:
-  workflow_run:
-    workflows: ["Setup JDK and Gradle"]
-    types:
-      - completed
+  push:
 
 jobs:
   build:
@@ -14,6 +11,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: "corretto"
+          java-version: "17"
+          
       - name: Grant permission
         run: chmod +x gradlew
           
