@@ -16,7 +16,7 @@ import com.rapidfort.apiproject.service.FileUploadService;
 @RestController
 @RequestMapping("/file")
 public class FileUploadController {
-    private final String UPLOAD_DIRECTORY = "/tmp/uploads/";
+    private final String UPLOAD_DIRECTORY = "src/main/resources/uploads/";
 
     @Autowired
     private FileUploadService fileUploadService;
