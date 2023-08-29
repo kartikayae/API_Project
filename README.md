@@ -23,18 +23,18 @@ _The POST_ Method allows posting of the resource to the web server.
 ### How to run this API locally?
 1. All the prerequisites must be checked off before pulling the git repository to a local machine.
 2. Pull the repository to a local machine.
-3. Run './gradlew build'.
-4. Once the build succeeds, the jar file is created by Gradle in the 'build/libs/' directory.
-5. Run the jar file - 'java -jar path/to/jar-file'. The program must be running by now.
-6. The file uploaded would be in src/main/resources/uploads directory.
+3. Run `./gradlew build`.
+4. Once the build succeeds, the jar file is created by Gradle in the `build/libs/` directory.
+5. Run the jar file - `java -jar path/to/jar-file`. The program must be running by now.
+6. The file uploaded would be in `src/main/resources/uploads` directory.
 
 ### To dockerize
 1. To dockerize this web app, a docker image needs to be created.
-2. Run 'bash rundocker.sh'.
+2. Run `bash rundocker.sh`.
 
 ### To run Kubernetes Cluster and deploy service
 1. Install minikube and kubectl.
-2. Start the cluster by running 'minikube start' and check the status by 'minikube status'.
-3. Once it is up and running, run 'kubectl apply -f deployment.yaml'.
-4. Run 'kubectl apply -f service.yaml'.
-5. Get the pod by 'kubectl get pods' and expose the deployment by 'kubectl expose deployment ${service name}'.
+2. Start the cluster by running `minikube start` and check the status by `minikube status`.
+3. Once it is up and running, run `kubectl apply -f deployment.yaml`.
+4. Run `kubectl apply -f service.yaml`.
+5. Get the pod by `kubectl get pods` and expose the deployment by `kubectl expose deployment ${service name}`.
