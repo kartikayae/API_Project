@@ -1,21 +1,29 @@
 # API Project
 
 ## Project Overview
-REST API based web app for uploading and analyzing file information and metadata. This web server is built in Spring Boot, backed by Gradle and Java, containerized through docker images and manifested the web server through kubernetes, and automated through the Github Actions pipeline.
+REST API based web app for uploading and analyzing file information and metadata. This web server is built in Spring Boot, backed by Gradle and Java, containerized through docker images and manifested the web server through Kubernetes, and automated through the GitHub Actions pipeline.
 
 ## Prerequisites
-1. JAVA 17 - [Corretto]("https://aws.amazon.com/corretto/")
-The Amazon Corretto 17 distribution is used for this project as it fits perfectly in the JAVA setup workflow for Github Actions. If you plan on using the same pipeline, some other options can be found here. [distros]("https://github.com/actions/setup-java#supported-distributions.").
+1. JAVA 17 - [Corretto](https://aws.amazon.com/corretto/).  
+The Amazon Corretto 17 distribution is used for this project as it fits perfectly in the JAVA setup workflow for GitHub Actions. If you plan on using the same pipeline, some other options can be found [here](https://github.com/actions/setup-java#supported-distributions).
 
-2. Spring Boot - [Initializer]("https://start.spring.io/")
-It is an amazing spring initializer which let's the user choose the java version, build type and many dependencies to choose from to initialize a project.
+2. Spring Boot - [Initializer](https://start.spring.io/)  
+It is an amazing spring tool that lets the user choose the Java version, build type, and many dependencies to choose from to initialize a project.
 
-3. Docker - [Docker Desktop]("https://www.docker.com/products/docker-desktop/")
-Essesntial tool to build and analyze docker images and containers.
+3. Docker - [Docker Desktop](https://www.docker.com/products/docker-desktop/)  
+An essential tool to build and analyze docker images and containers.
 
-4. Kubernetes - [Minikube and Kubectl]("https://kubernetes.io/docs/tasks/tools/")
-Both can be downloaded from the above link and are essential as minikube provides single node cluster to check and test out the docker images formed.
+4. Kubernetes - [Minikube and Kubectl](https://kubernetes.io/docs/tasks/tools/)  
+Both can be downloaded from the above link and are essential as minikube provides a single node cluster to check and test out the docker images formed.
 
 ## API Description
-The REST API let's the user upload an file on the web server and in turn get the metadata for the file.
-_The POST_ Method allows to post the resource to the web server.
+The REST API lets the user upload a file on the web server and in turn, get the metadata for the file.  
+_The POST_ Method allows posting of the resource to the web server.
+
+## How to run this API locally?
+1. All the prerequisites must be checked off before pulling the git repository to a local machine.
+2. Pull the repository to a local machine.
+3. Run './gradlew build'.
+4. Once the build succeeds, the jar file is created by Gradle in the 'build/libs/' directory.
+5. Run the jar file - 'java -jar path/to/jar-file'. The program must be running by now.
+6. The file uploaded would be in src/main/resources/uploads directory.
